@@ -1,0 +1,23 @@
+{% extends 'partials/base.html' %}
+{% block title %}Order Completions Page{% endblock %}
+
+{% block content %}
+
+<div class="row my-4">
+    <div class="col-md-6 offset-md-3">
+        <div class="border p-3 bg-white">
+            <h3>Complete Order</h3>
+            <hr>
+            <form method="POST">
+                <div class="alert alert-danger">
+                    <h4>Has this order been fullfilled? </h4>
+                </div>
+                {% csrf_token %}
+                {% comment %} {{ order }} {% endcomment %}
+                <a class="btn btn-secondary btn-sm" href="{% url 'dashboard-order' %}">No</a>
+                <input class="btn btn-danger btn-sm" type="submit" value="Yes">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
